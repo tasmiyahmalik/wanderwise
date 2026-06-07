@@ -1,0 +1,56 @@
+<h1 class="title">Admin Panel</h1>
+
+<div class="grid">
+
+  <div class="card" (click)="open('users')">
+    <h2>Users</h2>
+    <p>{{users.length}}</p>
+  </div>
+
+  <div class="card" (click)="open('trips')">
+    <h2>Trips</h2>
+    <p>{{trips.length}}</p>
+  </div>
+
+  <div class="card" (click)="open('logs')">
+    <h2>Activity Logs</h2>
+    <p>{{logs.length}}</p>
+  </div>
+
+</div>
+
+<!-- USERS -->
+<div class="panel" *ngIf="view === 'users'">
+
+  <h2>User List</h2>
+
+  <div class="list" *ngFor="let u of users">
+    {{u.name}} - {{u.email}}
+  </div>
+
+  <button (click)="back()">Close</button>
+</div>
+
+<!-- TRIPS -->
+<div class="panel" *ngIf="view === 'trips'">
+
+  <h2>Trip Bookings</h2>
+
+  <div class="list" *ngFor="let t of trips">
+    {{t.country}} - Bookings: {{t.bookings}}
+  </div>
+
+  <button (click)="back()">Close</button>
+</div>
+
+<!-- LOGS -->
+<div class="panel" *ngIf="view === 'logs'">
+
+  <h2>Activity Logs</h2>
+
+  <div class="list" *ngFor="let l of logs">
+    {{l}}
+  </div>
+
+  <button (click)="back()">Close</button>
+</div>

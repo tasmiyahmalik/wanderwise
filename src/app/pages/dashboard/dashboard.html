@@ -1,0 +1,49 @@
+<h1 class="title">Admin Dashboard</h1>
+
+<!-- STATS CARDS -->
+<div class="grid">
+
+  <div class="card" *ngFor="let s of stats" (click)="openView(s.key)">
+    <h2>{{s.title}}</h2>
+    <p>{{s.value}}</p>
+  </div>
+
+</div>
+
+<!-- USERS LIST -->
+<div class="panel" *ngIf="view === 'users'">
+
+  <h2>Users List</h2>
+
+  <ul>
+    <li *ngFor="let u of users">{{u}}</li>
+  </ul>
+
+  <button (click)="back()">Close</button>
+</div>
+
+<!-- TRIPS LIST -->
+<div class="panel" *ngIf="view === 'trips'">
+
+  <h2>Trips List</h2>
+
+  <ul>
+    <li *ngFor="let t of trips">{{t}}</li>
+  </ul>
+
+  <button (click)="back()">Close</button>
+</div>
+
+<!-- BOOKINGS LIST -->
+<div class="panel" *ngIf="view === 'bookings'">
+
+  <h2>Bookings</h2>
+
+  <ul>
+    <li *ngFor="let b of bookings">
+      {{b.name}} → {{b.trip}}
+    </li>
+  </ul>
+
+  <button (click)="back()">Close</button>
+</div>

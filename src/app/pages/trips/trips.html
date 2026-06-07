@@ -1,0 +1,33 @@
+<h1 class="title">Book Your Trip</h1>
+
+<div class="grid">
+
+  <div class="card" *ngFor="let c of countries">
+
+    <img [src]="c.img">
+
+    <h3>{{c.name}}</h3>
+
+    <p>Starting from {{c.price}}</p>
+
+    <button (click)="bookTrip(c)">Book Trip</button>
+
+  </div>
+
+</div>
+
+<!-- BOOKING POPUP -->
+<div class="popup" *ngIf="selectedTrip">
+
+  <div class="popup-box">
+
+    <h2>{{selectedTrip.name}}</h2>
+
+    <p>Price: {{selectedTrip.price}}</p>
+
+    <button (click)="payNow()">Pay Now</button>
+    <button (click)="close()">Cancel</button>
+
+  </div>
+
+</div>
